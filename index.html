@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="book.js" defer></script>
+  <script src="library.js" defer></script>
   <title>Simple Library</title>
 </head>
 
@@ -14,7 +14,31 @@
   <header>
     <h1>Simple Library</h1>
   </header>
+  <button class="new-book">+ New Book</button>
   <div class="library"></div>
+  <div class="popup">
+    <div class="add_book">
+      <legend>New Book</legend>
+      <div class="close">x</div>
+      <div class="title">
+        <label for="Title">Title</label>
+        <input type="text" name="title" id="title" placeholder="Ex. The Game of Thrones">
+      </div>
+      <div class="author">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" placeholder="Ex. John Smith">
+      </div>
+      <div class="pages">
+        <label for="pages">Pages</label>
+        <input type="text" name="pages" placeholder="100" id="pages">
+      </div>
+      <div class="read">
+        <label for="read">Read</label>
+        <input type="checkbox" name="read" id="read">
+      </div>
+      <button type="submit" class="add">Add</button>
+    </div>
+  </div>
 </body>
 
 </html>
