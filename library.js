@@ -43,17 +43,12 @@ function addBookToLibrary() {
   const title = titleInput.value;
   const author = authorInput.value;
   const pages = pagesInput.value;
-  const read = checkStatus();
+  const read = readInput.checked;
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
 }
 
-function checkStatus() {
-  return readInput.checked;
-}
-
 function render() {
-  library.innerHTML = "";
   for (let i = 0; i < myLibrary.length; i++) {
     displayBook(myLibrary[i]);
   }
@@ -95,7 +90,8 @@ function createRemoveButton(id) {
 
 function removeBook(id) {
   myLibrary.splice(id, 1);
-  render();
+  const book = document.getElementById(`${id}`);
+  book.remove();
 }
 
 function clearForm() {
