@@ -65,6 +65,7 @@ function displayBook(book) {
         <p>Pages: ${book.pages}</p>
         <p>Read: ${readDisplay(book)}</p>
       </div>`;
+  currentBook.appendChild(changeStatus(currentBook.id));
   currentBook.appendChild(createRemoveButton(currentBook.id));
 
   library.appendChild(currentBook);
@@ -72,9 +73,9 @@ function displayBook(book) {
 
 function readDisplay(book) {
   if (book.read) {
-    return "Read";
+    return "Yes";
   } else {
-    return "Not Read Yet";
+    return "Not Yet";
   }
 }
 
@@ -86,6 +87,19 @@ function createRemoveButton(id) {
   remove.addEventListener("click", () => removeBook(id));
   removeDiv.appendChild(remove);
   return removeDiv;
+}
+
+function changeStatus(id) {
+  const book = myLibrary[id];
+  const status = document.createElement("button");
+  status.className = "status";
+  status.textContent = "Change Status";
+  status.addEventListener("click", () => {
+    book.read = !book.read;
+    library.textContent = "";
+    render();
+  });
+  return status;
 }
 
 function removeBook(id) {

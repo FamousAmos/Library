@@ -411,6 +411,15 @@ h1 {
   margin-bottom: 0.5em;
 }
 
+.library {
+  width: 60vw;
+  margin: 20px auto 0;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
 .popup {
   display: none;
 }
