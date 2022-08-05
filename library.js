@@ -53,17 +53,49 @@ function checkStatus() {
 }
 
 function render() {
-  for (const book of myLibrary) {
-    const currentBook = document.createElement("div");
-    currentBook.className = "book";
-    currentBook.innerHTML = `<div class="card-info">
+  library.innerHTML = "";
+  for (let i = 0; i < myLibrary.length; i++) {
+    displayBook(myLibrary[i]);
+  }
+}
+
+function displayBook(book) {
+  const currentBook = document.createElement("div");
+  currentBook.className = "book";
+  currentBook.setAttribute("id", myLibrary.indexOf(book));
+  currentBook.innerHTML = `
+      <div class="card-info">
         <div class="title">${book.title}</div>
         <p>By: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
+        <p>Read: ${readDisplay(book)}</p>
       </div>`;
+  currentBook.appendChild(createRemoveButton(currentBook.id));
 
-    library.appendChild(currentBook);
+  library.appendChild(currentBook);
+}
+
+function readDisplay(book) {
+  if (book.read) {
+    return "Read";
+  } else {
+    return "Not Read Yet";
   }
+}
+
+function createRemoveButton(id) {
+  const removeDiv = document.createElement("div");
+  const remove = document.createElement("button");
+  remove.className = "delete";
+  remove.textContent = "Delete";
+  remove.addEventListener("click", () => removeBook(id));
+  removeDiv.appendChild(remove);
+  return removeDiv;
+}
+
+function removeBook(id) {
+  myLibrary.splice(id, 1);
+  render();
 }
 
 function clearForm() {
