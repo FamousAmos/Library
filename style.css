@@ -378,6 +378,39 @@ template {
   display: none;
 }
 
+body {
+  font-family: 'Comfortaa', cursive;
+  background-color: #6f53fc;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: aliceblue;
+}
+
+header button {
+  width: 150px;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: #ebfb5e;
+  box-shadow: 5px 5px 5px #1b173f;
+
+}
+
+header button:hover {
+  cursor: pointer;
+  background-color: #c7d54f;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 5em;
+  margin-bottom: 0.5em;
+}
+
 .popup {
   display: none;
 }
