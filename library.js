@@ -58,6 +58,7 @@ function displayBook(book) {
   const currentBook = document.createElement("div");
   currentBook.className = "book";
   currentBook.setAttribute("id", myLibrary.indexOf(book));
+  currentBook.style.backgroundColor = getColor(book);
   currentBook.innerHTML = `
       <div class="card-info">
         <div class="title">${book.title}</div>
@@ -65,10 +66,19 @@ function displayBook(book) {
         <p>Pages: ${book.pages}</p>
         <p>Read: ${readDisplay(book)}</p>
       </div>`;
-  currentBook.appendChild(changeStatus(currentBook.id));
+
   currentBook.appendChild(createRemoveButton(currentBook.id));
+  currentBook.appendChild(changeStatus(currentBook.id));
 
   library.appendChild(currentBook);
+}
+
+function getColor(book) {
+  if (book.read) {
+    return "#4fd55d";
+  } else {
+    return "#d55d4f";
+  }
 }
 
 function readDisplay(book) {
@@ -81,9 +91,10 @@ function readDisplay(book) {
 
 function createRemoveButton(id) {
   const removeDiv = document.createElement("div");
+  removeDiv.className = "remove";
   const remove = document.createElement("button");
   remove.className = "delete";
-  remove.textContent = "Delete";
+  remove.innerHTML = "<i class='fa fa-trash'></i>";
   remove.addEventListener("click", () => removeBook(id));
   removeDiv.appendChild(remove);
   return removeDiv;

@@ -413,11 +413,49 @@ h1 {
 
 .library {
   width: 60vw;
-  margin: 20px auto 0;
+  margin: 40px auto 0;
   padding: 20px;
   display: grid;
-  gap: 20px;
+  gap: 30px 50px;
   grid-template-columns: 1fr 1fr;
+}
+
+.book {
+  display: grid;
+  justify-self: center;
+  width: 22vw;
+  grid-template-columns: 5fr 1fr;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #1b173f;
+  font-size: 1rem;
+}
+
+.card-info {
+  padding-top: 10px;
+}
+
+.remove {
+  justify-self: end;
+}
+
+.delete {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: rgba(120, 120, 120, 0.5);
+}
+
+.status {
+  width: 15vw;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .popup {
